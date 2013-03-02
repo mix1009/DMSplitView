@@ -482,6 +482,11 @@
 		NSRect viewFrame = subview.frame;
 		NSPoint viewOrigin = viewFrame.origin;
 		
+        if ([subview isHidden]) {
+            offset += self.dividerThickness;
+            continue;
+        }
+
         if (self.isVertical)    viewOrigin.x = offset;
         else                    viewOrigin.y = offset;
 		[subview setFrameOrigin:viewOrigin];
